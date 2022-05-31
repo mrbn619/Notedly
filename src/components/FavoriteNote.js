@@ -14,7 +14,7 @@ const FavoriteNote = props => {
     //store if the user has favorited the note as a state
     const [favorited, setFavorited] = useState(
         //check if the note exists in the user's favorites list
-        props.me.favorites.filter(note => note.id === props.noteId).length > 0;
+        props.me.favorites.filter(note => note.id === props.noteId).length > 0,
     );
     //TOGGLE_FAVORITE mutation hook
     const [toggleFavorite] = useMutation(TOGGLE_FAVORITE, {
