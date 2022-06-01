@@ -14,5 +14,5 @@ npm run dev
 
 ## environment variable
 
-make a copy of .env.example as .env/
+make a copy of .env.example as .env, 
 update the API_URI variable
