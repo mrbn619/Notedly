@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrbn619/Notedly"
+    "url": "git+https://github.com/mrbn619/notedly"
   },
   "keywords": [],
   "author": "Robin",
   "license": "",
   "bugs": {
-    "url": "https://github.com/mrbn619/Notedly/issues"
+    "url": "https://github.com/mrbn619/notedly/issues"
   },
-  "homepage": "https://github.com/mrbn619/Notedly#readme",
+  "homepage": "https://github.com/mrbn619/notedly#readme",
   "dependencies": {
     "@apollo/client": "3.0.0-beta.24",
     "@types/react": "^16.9.17",
