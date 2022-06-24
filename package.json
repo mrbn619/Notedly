@@ -1,7 +1,7 @@
 {
-  "name": "notedly",
+  "name": "notes",
   "version": "1.0.0",
-  "description": "web app for notedly API",
+  "description": "web-client for notedly API",
   "main": "src/index.js",
   "scripts": {
     "dev": "parcel src/index.html",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrbn619/notedly"
+    "url": "git+https://github.com/mrbn619/notes"
   },
   "keywords": [],
-  "author": "Robin",
+  "author": "mrbn619",
   "license": "",
   "bugs": {
-    "url": "https://github.com/mrbn619/notedly/issues"
+    "url": "https://github.com/mrbn619/notes/issues"
   },
-  "homepage": "https://github.com/mrbn619/notedly#readme",
+  "homepage": "https://github.com/mrbn619/notes#readme",
   "dependencies": {
     "@apollo/client": "3.0.0-beta.24",
     "@types/react": "^16.9.17",
