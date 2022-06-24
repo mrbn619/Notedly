@@ -10,7 +10,7 @@ import {NEW_NOTE} from '../gql/mutation';
 
 const NewNote = props => {
     useEffect(() => {
-        document.title = 'New Note - Notedly';
+        document.title = 'New Note';
     });
 
     //mutation hook

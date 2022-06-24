@@ -8,7 +8,7 @@ import { GET_MY_FAVORITES } from '../gql/query';
 const Favorites = () => {
   useEffect(() => {
     //update the document title
-    document.title = 'My Notes - Favorites';
+    document.title = 'Favorites';
   });
 
   //quer hook

@@ -9,7 +9,7 @@ import { GET_NOTES } from '../gql/query';
 const Home = () => {
   //use effect hook
   useEffect(() => {
-    document.title = 'Notedly';
+    document.title = 'Notes';
   });
 
   //query hook

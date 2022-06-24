@@ -38,7 +38,7 @@ const Header = props => {
   return (
     <HeaderBar>
       <img src={logo} alt="Notedly Logo" height="40" />
-      <LogoText>Notedly</LogoText>
+      <LogoText>Notes</LogoText>
       <UserState>
         {/*if logged in then dispplay a logout link, else display sign in options */}
         {data.isLoggedIn ? (
