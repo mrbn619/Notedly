@@ -1,7 +1,7 @@
 
-# Notedly Web Application
+# Notes Web Application
 
-This repository contains source code for notedly web application
+This repository contains source code for notes web-client
 
 ## To Run the Application
 
