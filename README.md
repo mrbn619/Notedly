@@ -1,9 +1,16 @@
 
-# Notes Web Application
+# notes web application
 
-This repository contains source code for notes web-client
+A simple and lightweight application for creating/publishing notes. 
+Privilges to anyone is limited to only read notes and view the number of favorites
 
-## To Run the Application
+create an user account to:
+  create and publish notes,
+  like/dislike notes of users, 
+  edit and delete notes.
+
+# development
+This reposirory contains the source code for web client for the application.
 
 When developing locally, you can start the app by running:
 
