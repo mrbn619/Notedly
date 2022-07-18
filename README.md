@@ -12,12 +12,19 @@ create an user account to:
 # development
 This reposirory contains the source code for web client for the application.
 
-When developing locally, you can start the app by running:
+parcel is the bundler used
 
+To start development server
 ```
 npm run dev
 
 ```
+To build 
+```
+npm run deploy:src
+
+```
+
 
 ## environment variable
 
