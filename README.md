@@ -26,7 +26,7 @@ To build
 npm run deploy:src
 ```
 
-## environment variable
+## environment
 
 make a copy of .env.example as .env
 
