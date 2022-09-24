@@ -9,6 +9,7 @@ create an user account to:
 >edit and delete notes.
 
 # development
+
 This reposirory contains the source code for web client for the application.
 
 parcel is the bundler used
@@ -27,5 +28,6 @@ npm run deploy:src
 
 ## environment variable
 
-make a copy of .env.example as .env, 
+make a copy of .env.example as .env
+
 update the API_URI variable
