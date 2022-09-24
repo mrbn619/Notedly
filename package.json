@@ -14,8 +14,8 @@
     "url": "git+https://github.com/mrbn619/notes"
   },
   "keywords": [],
-  "author": "mrbn619",
-  "license": "",
+  "author": ["Adam scott", "mrbn619"],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mrbn619/notes/issues"
   },
