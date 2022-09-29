@@ -2,6 +2,7 @@ import React from 'react';
 import NoteForm from '../components/NoteForm';
 import { useQuery, useMutation } from '@apollo/client';
 import { Redirect } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 //import GET_NOTE and GET_ME query
 import { GET_NOTE, GET_ME } from '../gql/query';
@@ -30,7 +31,7 @@ const EditNote = props => {
   });
 
   //if loading the data,
-  if (loading) return 'Loading...';
+  if (loading) return <Loading />;
 
   //if error in fetching data
   if (error) return <p>Error! Note not found</p>;

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import NoteFeed from '../components/NoteFeed';
+import Loading from '../components/Loading';
 
 //import the favorites query
 import { GET_MY_FAVORITES } from '../gql/query';
@@ -14,7 +15,7 @@ const Favorites = () => {
   //quer hook
   const { loading, error, data } = useQuery(GET_MY_FAVORITES);
   //if loading, display the loading message
-  if (loading) return 'Loading...';
+  if (loading) return <Loading /> ;
   //if there was an error, display the error message
   if (error) return `Error! ${error.message}`;
   //if query is successful and there are no notes, display a message

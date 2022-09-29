@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import DeleteNote from './DeleteNote';
 import FavoriteNote from './FavoriteNote';
+import Loading from './Loading';
 
 //import GET_ME user query
 import { GET_ME } from '../gql/query';
@@ -10,7 +11,7 @@ import { GET_ME } from '../gql/query';
 const NoteUser = props => {
   const { loading, error, data } = useQuery(GET_ME);
   //if data is loading, display the loading message
-  if (loading) return 'Loading...';
+  if (loading) return <Loading />;
   //if there was an error, display the error message
   if (error) return <p>Error!</p>;
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Nav = styled.nav`
   padding: 1em;
   background: #f5f4f0;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   @media (max-width: 700px) {
     padding-top: 64px;
   }
@@ -47,25 +47,25 @@ const Navigation = () => {
           <span aria-hidden="true" role="img">
             🏠
           </span>
-          <Link to="/">Home</Link>
+          <Link to="/"> Home</Link>
         </li>
         <li>
           <span aria-hidden="true" role="img">
-            📝
+            📋
           </span>
-          <Link to="/mynotes">My Notes</Link>
+          <Link to="/mynotes"> My Notes</Link>
         </li>
         <li>
           <span aria-hidden="true" role="img">
-            🌟
+            ⭐
           </span>
-          <Link to="/favorites">Favorites</Link>
+          <Link to="/favorites"> Favorites</Link>
         </li>
         <li>
           <span aria-hidden="true" role="img">
-            📌
+            🖋️
           </span>
-          <Link to="/new">New</Link>
+          <Link to="/new"> New</Link>
         </li>
       </NavList>
     </Nav>

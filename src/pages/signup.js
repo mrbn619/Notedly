@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useMutation, useApolloClient } from '@apollo/client';
 import UserForm from '../components/UserForm';
+import Loading from '../components/Loading';
 
 //import SIGNUP_USER mutation
 import { SIGNUP_USER } from '../gql/mutation';
@@ -32,7 +33,7 @@ const SignUp = props => {
     <React.Fragment>
       <UserForm action={signUp} formType="signup" />
       {/*if data is loading, display the loading message */}
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
       {/*if there is an error, display the error message */}
       {error && <p>Error creating an account!</p>}
     </React.Fragment>

@@ -17,7 +17,7 @@ const HeaderBar = styled.header`
   position: fixed;
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 10px 5px 10px 5px rgba(0, 0, 0, 0.25);
   z-index: 1;
 `;
 
@@ -37,8 +37,8 @@ const Header = props => {
   
   return (
     <HeaderBar>
-      <img src={logo} alt="Notedly Logo" height="40" />
-      <LogoText>Notes</LogoText>
+      <Link to="/"><img src={logo} alt="Notedly Logo" height="40" /></Link>
+      <LogoText><Link style={{textDecoration: 'none', color: '#000000'}} to="/">Notes</Link></LogoText>
       <UserState>
         {/*if logged in then dispplay a logout link, else display sign in options */}
         {data.isLoggedIn ? (

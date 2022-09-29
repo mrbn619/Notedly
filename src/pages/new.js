@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import {useMutation} from '@apollo/client';
 import NoteForm from '../components/NoteForm';
+import Loading from '../components/Loading';
 
 //import GET_NOTES, and GET_MY_NOTES to refetch
 import {GET_NOTES, GET_MY_NOTES} from '../gql/query';
@@ -26,7 +27,7 @@ const NewNote = props => {
     return(
         <React.Fragment>
             {/*if loading, display the loading message */}
-            {loading && <p>Loading...</p>}
+            {loading && <Loading />}
             {/*if there was a error, display the error message */}
             {error && <p>Error saving the note!</p>}
             {/*NoteForm component, passing mutation data as the prop */}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useMutation, useApolloClient } from '@apollo/client';
 import UserForm from '../components/UserForm';
+import Loading from '../components/Loading';
 
 //import SIGNIN_USER mutation
 import { SIGNIN_USER } from '../gql/mutation';
@@ -31,7 +32,7 @@ const SignIn = props => {
     <React.Fragment>
       <UserForm action={signIn} formType="signin" />
       {/*if the data is loading, display the loading message */}
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
       {/*if error signing in, display the error message */}
       {error && <p>Error Signin In!</p>}
     </React.Fragment>

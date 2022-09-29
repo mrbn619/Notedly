@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  border: 1px solid #f5f4f0;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 2%;
   max-width: 500px;
   padding: 1em;
   margin: 0 auto;

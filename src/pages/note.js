@@ -1,6 +1,7 @@
 import React from 'react';
 import Note from '../components/Note';
 import { useQuery } from '@apollo/client';
+import Loading from '../components/Loading';
 
 //import GET_NOTE query
 import { GET_NOTE } from '../gql/query';
@@ -13,7 +14,7 @@ const NotePage = props => {
   const { loading, error, data } = useQuery(GET_NOTE, { variables: { id } });
 
   //if loading the data,
-  if (loading) return 'Loading...';
+  if (loading) return <Loading />;
 
   //if error in fetching data
   if (error) return <p>Error!</p>;

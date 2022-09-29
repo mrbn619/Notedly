@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import Loading from './Loading';
+
 import styled from 'styled-components';
 import NoteUser from './NoteUser';
+
 import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
+
 
 //import the format utility from date-fns
 import { format } from 'date-fns';
@@ -12,6 +17,9 @@ import { format } from 'date-fns';
 const StyledNote = styled.article`
   max-width: 800px;
   margin: 0 auto;
+  border: 1px solid #f6f6f6;
+  border-radius: 2%;
+  padding: 1em;
 `;
 
 //style the note metadata
@@ -30,6 +38,9 @@ const MetaInfo = styled.div`
 //align UserActions to right on big screens
 const UserActions = styled.div`
   margin-left: auto;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  padding: 1em;
+  border-radius: 5%;
 `;
 
 const Note = ({ note }) => {
@@ -37,7 +48,7 @@ const Note = ({ note }) => {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
 
   //if loading, display the loading message
-  if (loading) return 'Loading...';
+  if (loading) return <Loading />;
 
   //if there was an error, display the error message
   if (error) return <p>Error!</p>;
@@ -67,7 +78,10 @@ const Note = ({ note }) => {
           </UserActions>
         )}
       </MetaData>
-      <ReactMarkdown source={note.content} />
+      <ReactMarkdown 
+        children={note.content} 
+        remarkPlugins={[remarkGfm]}  
+      />
     </StyledNote>
   );
 };

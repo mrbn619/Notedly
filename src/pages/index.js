@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import Loading from '../components/Loading';
 
 //import the layout component
 import Layout from '../components/Layout';
@@ -41,7 +42,7 @@ const Pages = () => {
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
   //if data is loading, display loading message
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   //if error, then display error message
   if (error) return <p>Error!</p>;
   //if user is logged in route them to the requested component

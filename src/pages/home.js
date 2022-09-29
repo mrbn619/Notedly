@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import NoteFeed from '../components/NoteFeed';
 import ButtonAsLink from '../components/ButtonAsLink';
+import Loading from '../components/Loading';
 
 //import GET_NOTES query
 import { GET_NOTES } from '../gql/query';
@@ -16,7 +17,7 @@ const Home = () => {
   const { data, loading, error, fetchMore } = useQuery(GET_NOTES);
 
   //if data is loading, display a loading message
-  if (loading) return <p>loading... </p>;
+  if (loading) return <Loading />;
 
   //if ther is an error fetching data, display error message
   if (error) return <p>Error!!</p>;
@@ -52,7 +53,7 @@ const Home = () => {
         >
           Load more
         </ButtonAsLink>
-      )}
+      )} 
     </React.Fragment>
   );
 };
