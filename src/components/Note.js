@@ -15,9 +15,10 @@ import { format } from 'date-fns';
 
 //keep notes from extending wider than 800px
 const StyledNote = styled.article`
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  border: 1px solid #f6f6f6;
+  margin-bottom: 1em;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   border-radius: 2%;
   padding: 1em;
 `;
@@ -31,8 +32,15 @@ const MetaData = styled.div`
 `;
 
 //add some space between the avatar and meta info
+const WrapMetaInfo = styled.div `
+    border: 1px solid #f6f6f6;
+    border-radius: 2%;
+`;
+
 const MetaInfo = styled.div`
+  display: inline-block;
   padding-right: 1em;
+  padding-bottom: 1em;
 `;
 
 //align UserActions to right on big screens
@@ -41,6 +49,11 @@ const UserActions = styled.div`
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   padding: 1em;
   border-radius: 5%;
+`;
+
+//content wrapper
+const ContentWrapper = styled.div `
+  overflow: auto;
 `;
 
 const Note = ({ note }) => {
@@ -56,17 +69,19 @@ const Note = ({ note }) => {
   return (
     <StyledNote>
       <MetaData>
-        <MetaInfo>
-          <img
-            src={note.author.avatar}
-            alt="{note.author.username} avatar"
-            height="50px"
-          />
-        </MetaInfo>
-        <MetaInfo>
-          <em>by</em> {note.author.username} <br />
-          {format(note.createdAt, 'MMM Do YYYY')}
-        </MetaInfo>
+        <WrapMetaInfo>
+            <MetaInfo>
+              <img
+                src={note.author.avatar}
+                alt="{note.author.username} avatar"
+                height="50px"
+              />
+            </MetaInfo>
+            <MetaInfo>
+              <em>by</em> {note.author.username} <br />
+              {format(note.createdAt, 'MMM Do YYYY')}
+            </MetaInfo>
+        </WrapMetaInfo>
         {data.isLoggedIn ? (
           <UserActions>
             <NoteUser note={note} />
@@ -78,10 +93,12 @@ const Note = ({ note }) => {
           </UserActions>
         )}
       </MetaData>
-      <ReactMarkdown 
-        children={note.content} 
-        remarkPlugins={[remarkGfm]}  
-      />
+      <ContentWrapper>
+        <ReactMarkdown
+          children={note.content} 
+          remarkPlugins={[remarkGfm]}  
+        />
+      </ContentWrapper>
     </StyledNote>
   );
 };
