@@ -6,9 +6,12 @@ const Nav = styled.nav`
   padding: 1em;
   background: #f5f4f0;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+
   @media (max-width: 700px) {
     padding-top: 64px;
+    background: #fff;
   }
+
   @media (min-width: 700px) {
     position: fixed;
     width: 220px;
@@ -29,6 +32,7 @@ const NavList = styled.ul`
     font-weight: bold;
     font-size: 1.1em;
     color: #333;
+    transition: ease 1.5s;
   }
   a:visited {
     color: #333;
@@ -42,11 +46,13 @@ const NavList = styled.ul`
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: ease 1.5s;
   }
 
-  li:hover
-  {
+  li:hover,
+  li:focus {
     color: #0077cc;
+    padding-left: 1em;
   }
 `;
 
@@ -56,19 +62,19 @@ const Navigation = () => {
     <Nav>
       <NavList>
         <li>
-          <span class="material-icons-sharp">house</span>
+          <span className="material-icons-sharp">house</span>
           <Link to="/"> Home</Link>
         </li>
         <li>
-          <span class="material-icons-sharp">feed</span>
+          <span className="material-icons-sharp">feed</span>
           <Link to="/mynotes"> My Notes</Link>
         </li>
         <li>
-          <span class="material-icons-sharp">star</span>
+          <span className="material-icons-sharp">star</span>
           <Link to="/favorites"> Favorites</Link>
         </li>
         <li>
-          <span class="material-icons-sharp">add</span>
+          <span className="material-icons-sharp">add</span>
           <Link to="/new"> New</Link>
         </li>
       </NavList>

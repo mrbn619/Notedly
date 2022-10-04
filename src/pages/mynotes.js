@@ -17,7 +17,7 @@ const MyNotes = () => {
     //if data is loading, display the loading message
     if (loading) return <Loading />;
     //if there was an error, display the error message
-    if(error) return `Error! ${error.message}`;
+    if(error) return `Error: ${error.message}`;
     //if the query is successful and there are notes return the feed of notes, else
     //if the query is successful and there are no notes
     if(data.me.notes.length !== 0){

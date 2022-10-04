@@ -28,7 +28,7 @@ const Home = () => {
       <NoteFeed notes={data.noteFeed.notes} />
       {/* only display Load more button if hasNextPage is true*/}
       {data.noteFeed.hasNextPage && (
-        <ButtonAsLink
+        <ButtonAsLink id="link-btn"
           onClick={() =>
             fetchMore({
               variables: {
@@ -50,10 +50,12 @@ const Home = () => {
               }
             })
           }
-        >
-          <strong>Load more</strong>
+        >more<br />
+          <span className="material-icons-sharp">
+            arrow_downward
+          </span>
         </ButtonAsLink>
-      )} 
+      )}
     </React.Fragment>
   );
 };
