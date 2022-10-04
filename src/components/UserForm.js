@@ -85,7 +85,7 @@ const UserForm = props => {
         {props.formType === 'signin' && (
           <React.Fragment>
             <em>not a member? </em>
-            <Link style={{textDecoration: 'none'}} to="/signup">Sign Up</Link>
+            <Link style={{textDecoration: 'none'}} to="/signup"><strong>Sign Up</strong></Link>
           </React.Fragment>
         )}
         <p> </p>

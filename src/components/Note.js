@@ -19,7 +19,7 @@ const StyledNote = styled.article`
   margin: 0 auto;
   margin-bottom: 1em;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 2%;
+  border-radius: 1%;
   padding: 1em;
 `;
 
@@ -34,7 +34,12 @@ const MetaData = styled.div`
 //add some space between the avatar and meta info
 const WrapMetaInfo = styled.div `
     border: 1px solid #f6f6f6;
-    border-radius: 2%;
+    border-radius: 1%;
+    transition: ease 1s;
+
+    :hover { 
+      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+    }
 `;
 
 const MetaInfo = styled.div`
@@ -46,14 +51,21 @@ const MetaInfo = styled.div`
 //align UserActions to right on big screens
 const UserActions = styled.div`
   margin-left: auto;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  border: 1px solid #f6f6f6;
   padding: 1em;
   border-radius: 5%;
+  transition: ease 1s;
+
+  :hover {
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  }
+
 `;
 
 //content wrapper
 const ContentWrapper = styled.div `
   overflow: auto;
+  transition: ease 1s;
 `;
 
 const Note = ({ note }) => {

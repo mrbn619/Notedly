@@ -51,7 +51,7 @@ const Home = () => {
             })
           }
         >
-          Load more
+          <strong>Load more</strong>
         </ButtonAsLink>
       )} 
     </React.Fragment>

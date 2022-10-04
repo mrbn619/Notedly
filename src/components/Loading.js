@@ -16,7 +16,7 @@ const Loader = styled.div `
     border-radius: 50%;
     border-top: 2px solid #6c7378;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 45%;
     animation: spinner 1.5s linear infinite;
 }

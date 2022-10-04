@@ -57,7 +57,7 @@ const Header = props => {
           Log Out
           </ButtonAsLink>
         ) : (
-            <Link style={{textDecoration: 'none'}} to="signin">Sign In</Link>
+            <Link style={{textDecoration: 'none'}} to="signin"><strong>Sign In</strong></Link>
         )}
       </UserState>
     </HeaderBar>

@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
       <Header />
       <Wrapper>
         <Navigation />
-        <Main>{children}</Main>
+        <Main id="scroll" >{children}</Main>
       </Wrapper>
     </React.Fragment>
   );
