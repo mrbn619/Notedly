@@ -10,9 +10,9 @@ const Wrapper = styled.div`
 
   @media (min-width: 700px) {
     display: flex;
-    top: 64px;
+    top: 80px;
     position: relative;
-    height: calc(100% - 64px);
+    height: calc(100% - 80px);
     width: 100%;
     flex: auto;
     flex-direction: column;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   position: fixed;
-  height: calc(100% - 185px);
+  height: calc(100% - 300px);
   width: 100%;
   padding: 1em;
   overflow-y: auto;
@@ -29,7 +29,7 @@ const Main = styled.main`
   @media (min-width: 700px) {
     flex: 1;
     margin-left: 220px;
-    height: calc(100% - 64px);
+    height: calc(100% - 80px);
     width: calc(100% - 220px);
   }
 `;

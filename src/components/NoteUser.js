@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import DeleteNote from './DeleteNote';
 import FavoriteNote from './FavoriteNote';
-import Loading from './Loading';
+import Loading from './Loading'; 
 
 //import GET_ME user query
 import { GET_ME } from '../gql/query';
@@ -30,7 +30,7 @@ const NoteUser = props => {
             to={`/edit/${props.note.id}`}
           >
             <abbr title="Edit Note">
-              <span className="material-icons-sharp">edit</span>
+              <span className="material-icons-outlined">edit</span>
             </abbr>
           </Link>
           <br />

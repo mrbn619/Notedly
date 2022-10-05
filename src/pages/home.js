@@ -3,6 +3,28 @@ import { useQuery } from '@apollo/client';
 import NoteFeed from '../components/NoteFeed';
 import ButtonAsLink from '../components/ButtonAsLink';
 import Loading from '../components/Loading';
+import styled from 'styled-components';
+
+const ArrowWrapper = styled.div`
+  border: 1px solid #f6f6f6;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease 1s;
+
+  :hover {
+    box-shadow: 1px 5px 15px 5px rgba(0, 119, 204, 0.25);
+  }
+
+  @media (max-width: 700px) {
+    :hover {
+      box-shadow: none;
+    }
+  }
+`;
 
 //import GET_NOTES query
 import { GET_NOTES } from '../gql/query';
@@ -50,10 +72,13 @@ const Home = () => {
               }
             })
           }
-        >more<br />
-          <span className="material-icons-sharp">
-            arrow_downward
-          </span>
+        ><ArrowWrapper>
+            <abbr title='Fetch more'>
+              <span className="material-icons-outlined">
+                south
+              </span>
+            </abbr>
+          </ArrowWrapper>
         </ButtonAsLink>
       )}
     </React.Fragment>

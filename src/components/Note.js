@@ -35,39 +35,38 @@ const MetaData = styled.div`
   }
 `;
 
-//add some space between the avatar and meta info
-const WrapMetaInfo = styled.div`
-  border: 1px solid #f6f6f6;
-  border-radius: 1%;
-  transition: ease 1s;
-
-  :hover {
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
-  }
-`;
-
 const MetaInfo = styled.div`
   display: inline-block;
   padding-right: 1em;
   padding-bottom: 1em;
+
+  img {
+    border: 1px solid #333;
+    border-radius: 50%;
+    padding: 5px;
+  }
 `;
 
 //align UserActions to right on big screens
 const UserActions = styled.div`
   margin-left: auto;
-  border: 1px solid #f6f6f6;
-  padding: 1em;
-  border-radius: 1%;
+  padding: 0.5em;
   transition: ease 1s;
+  border: 1px solid #f6f6f6;
 
   :hover {
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 5px 15px 5px rgba(0, 119, 204, 0.25);
+    border-radius: 5%;
   }
 
   @media (max-width: 500px) {
     display: flex;
     align-items: top;
-    gap: 1em
+    gap: 0.5em;
+    
+    :hover {
+      box-shadow: none;
+    }
   }
 `;
 
@@ -82,9 +81,7 @@ const ContentWrapper = styled.div`
 
   @media (max-width: 700px) {
     :hover {
-      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
       padding-left: 1em;
-      border-radius: 1%;
     }
   }
 `;
@@ -102,26 +99,35 @@ const Note = ({ note }) => {
   return (
     <StyledNote>
       <MetaData>
-        <WrapMetaInfo>
-          <MetaInfo>
-            <img
-              src={note.author.avatar}
-              alt="{note.author.username} avatar"
-              height="50px"
-            />
-          </MetaInfo>
-          <MetaInfo>
-            <em>by</em> {note.author.username} <br />
-            {format(note.createdAt, 'MMM Do YYYY')}
-          </MetaInfo>
-        </WrapMetaInfo>
+        <MetaInfo>
+          <img
+            src={note.author.avatar}
+            alt="{note.author.username} avatar"
+            height="50px"
+            width="50px"
+          />
+        </MetaInfo>
+        <MetaInfo>
+          <em>by</em> {note.author.username} <br />
+          {format(note.createdAt, 'MMM Do YYYY')}
+        </MetaInfo>
         {data.isLoggedIn ? (
           <UserActions>
             <NoteUser note={note} />
           </UserActions>
         ) : (
           <UserActions>
-            <span className="material-icons-sharp">favorite </span>
+            {
+              note.favoriteCount > 0 ? (
+                <abbr title='Likes'>
+                  <span style={{ color: '#ff0000' }} className="material-icons-outlined">favorite </span>
+                </abbr>
+              ) : (
+                <abbr title='Likes'>
+                  <span style={{ color: '#ff0000' }} className="material-icons-outlined">favorite_border </span>
+                </abbr>
+              )
+            }
             {note.favoriteCount}
           </UserActions>
         )}
@@ -129,7 +135,7 @@ const Note = ({ note }) => {
       <ContentWrapper>
         <ReactMarkdown children={note.content} remarkPlugins={[remarkGfm]} />
       </ContentWrapper>
-    </StyledNote>
+    </StyledNote >
   );
 };
 

@@ -13,27 +13,30 @@ const NoteWrapper = styled.div`
     border-bottom: 1px solid #333;
     padding: 0px;
     padding-bottom: 2em;
+    margin-bottom: 2em;
   }
 
 `;
 
 const LinkBox = styled.div`
-  border: 2px solid #f6f6f6;
+  border: 1px solid #f6f6f6;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: ease 1s;
 
   :hover {
-    background: #0077cc;
+    box-shadow: 1px 5px 15px 5px rgba(0, 119, 204, 0.25);
   }
 
-  #link: hover {
-    color: #fff;
+  @media (max-width: 700px) {
+  :hover {
+      box-shadow: none;
+    }
   }
-    
 `;
 
 const NoteFeed = ({ notes }) => {
@@ -44,9 +47,9 @@ const NoteFeed = ({ notes }) => {
           <Note note={note} />
           <LinkBox>
             <Link id='link' to={`note/${note.id}`}>
-              <abbr title="Permalink">
-                <span className="material-icons-sharp">
-                  north_east
+              <abbr title="Open in full">
+                <span className="material-icons-outlined">
+                  open_in_full
                 </span>
               </abbr>
             </Link>

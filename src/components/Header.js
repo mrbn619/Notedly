@@ -12,11 +12,11 @@ const HeaderBar = styled.header`
   width: 100%;
   padding: 0.5em 1em;
   display: flex;
-  height: 64px;
+  height: 80px;
   position: fixed;
   align-items: center;
   background-color: #fff;
-  box-shadow: 10px 5px 10px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 5px 10px 5px rgba(0, 0, 0, 0.25);
   z-index: 1;
 
   @media (max-width: 700px) {
@@ -32,6 +32,13 @@ const LogoText = styled.h1`
 
 const UserState = styled.div`
   margin-left: auto;
+`;
+
+const StyledLink = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  font-weight: bold;
 `;
 
 const Header = props => {
@@ -58,11 +65,23 @@ const Header = props => {
                 props.history.push('/');
               }}
             >
-              <strong>Sign Out</strong>
+              <StyledLink>
+                <span class="material-icons-outlined">
+                  logout
+                </span>
+                <p>Sign Out</p>
+              </StyledLink>
             </ButtonAsLink>
           </div>
         ) : (
-          <Link style={{ textDecoration: 'none' }} to="signin"><strong>Sign In</strong></Link>
+          <Link style={{ textDecoration: 'none' }} to="signin">
+            <StyledLink>
+              <span class="material-icons-outlined">
+                login
+              </span>
+              <p>Sign In</p>
+            </StyledLink>
+          </Link>
         )}
       </UserState>
     </HeaderBar>

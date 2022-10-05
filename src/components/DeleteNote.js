@@ -25,7 +25,7 @@ const DeleteNote = props => {
   return (
     <ButtonAsLink onClick={deleteNote}>
       <abbr title="Delete Note">
-        <span className="material-icons-sharp">delete</span>
+        <span className="material-icons-outlined">delete</span>
       </abbr>
     </ButtonAsLink>
   );

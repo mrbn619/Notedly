@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 const Nav = styled.nav`
   padding: 1em;
   background: #f5f4f0;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  border: 2px solid #f6f6f6;
 
   @media (max-width: 700px) {
-    padding-top: 64px;
+    padding-top: 80px;
     background: #fff;
   }
 
   @media (min-width: 700px) {
     position: fixed;
     width: 220px;
-    height: calc(100% - 64px);
+    height: calc(100% - 80px);
     overflow-y: auto;
   }
 `;
@@ -62,19 +62,19 @@ const Navigation = () => {
     <Nav>
       <NavList>
         <li>
-          <span className="material-icons-sharp">house</span>
+          <span className="material-icons-outlined">home</span>
           <Link to="/"> Home</Link>
         </li>
         <li>
-          <span className="material-icons-sharp">feed</span>
+          <span className="material-icons-outlined">feed</span>
           <Link to="/mynotes"> My Notes</Link>
         </li>
         <li>
-          <span className="material-icons-sharp">star</span>
+          <span className="material-icons-outlined">star_border</span>
           <Link to="/favorites"> Favorites</Link>
         </li>
         <li>
-          <span className="material-icons-sharp">add</span>
+          <span className="material-icons-outlined">add</span>
           <Link to="/new"> New</Link>
         </li>
       </NavList>
