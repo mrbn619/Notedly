@@ -38,7 +38,7 @@ const StyledLink = styled.div`
   display: flex;
   align-items: center;
   gap: 0.25em;
-  font-weight: bold;
+  font-size: 1.1rem;
 `;
 
 const Header = props => {
@@ -66,7 +66,7 @@ const Header = props => {
               }}
             >
               <StyledLink>
-                <span class="material-icons-outlined">
+                <span className="material-icons-outlined" style={{ fontSize: '1.5rem' }}>
                   logout
                 </span>
                 <p>Sign Out</p>
@@ -76,7 +76,7 @@ const Header = props => {
         ) : (
           <Link style={{ textDecoration: 'none' }} to="signin">
             <StyledLink>
-              <span class="material-icons-outlined">
+              <span className="material-icons-outlined" style={{ fontSize: '1.5rem' }}>
                 login
               </span>
               <p>Sign In</p>

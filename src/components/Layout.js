@@ -5,13 +5,14 @@ import Navigation from "./Navigation";
 
 //component styles
 const Wrapper = styled.div`
+  top: 80px;
+
   /*we can media query styles within styled components*/
   /*this will apply the layout for screens above 700px width*/
-
   @media (min-width: 700px) {
     display: flex;
-    top: 80px;
     position: relative;
+    top: 80px;
     height: calc(100% - 80px);
     width: 100%;
     flex: auto;
@@ -21,7 +22,6 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   position: fixed;
-  height: calc(100% - 300px);
   width: 100%;
   padding: 1em;
   overflow-y: auto;
@@ -31,6 +31,11 @@ const Main = styled.main`
     margin-left: 220px;
     height: calc(100% - 80px);
     width: calc(100% - 220px);
+  }
+
+  @media(max-width: 700px){
+    top: calc(120px + 1rem);
+    height: calc(100% - calc(120px + 1rem));
   }
 `;
 

@@ -41,8 +41,8 @@ const MetaInfo = styled.div`
   padding-bottom: 1em;
 
   img {
-    border: 1px solid #333;
-    border-radius: 50%;
+    border: 2px solid #333;
+    border-radius: 5%;
     padding: 5px;
   }
 `;
@@ -57,6 +57,15 @@ const UserActions = styled.div`
   :hover {
     box-shadow: 1px 5px 15px 5px rgba(0, 119, 204, 0.25);
     border-radius: 5%;
+  }
+
+  @media (max-width: 700px) {
+    transition: none;
+
+    :hover{
+      border: 1px solid #333;
+      box-shadow: none;
+    }
   }
 
   @media (max-width: 500px) {
