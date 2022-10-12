@@ -30,35 +30,42 @@ const NavList = styled.ul`
   padding: 0;
   list-style: none;
   line-height: 2;
+  
   /* we can nest styles in styled components */
+  .li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: ease 0.3s;
+  }
+
+  .li:hover {
+    color: #0077cc;
+    padding-left: 1rem;
+    border-left: 1px solid #0077cc;
+  }
+
   /* the following styles will apply to links within NavList */
-  a {
+  .link {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
     color: #333;
-    transition: ease 1.5s;
   }
-  a:visited {
+  
+  .link:visited {
     color: #333;
   }
-  a:hover,
-  a:focus {
+
+  .link:hover{
+    color: #0077cc;
+  }
+
+  .link:focus {
+    padding-left: 1rem;
     color: #0077cc;
   }
   
-  li {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: ease 1.5s;
-  }
-
-  li:hover,
-  li:focus {
-    color: #0077cc;
-    padding-left: 1em;
-  }
 `;
 
 const StyledButton = styled.button`
@@ -114,25 +121,24 @@ const Navigation = () => {
       </StyledButton>
       <Nav disp={isShown}>
         <NavList>
-          <li>
+          <li className='li'>
             <span className="material-icons-outlined">home</span>
-            <Link to="/"> Home</Link>
+            <Link className="link" to="/"> Home</Link>
           </li>
-          <li>
+          <li className='li'>
             <span className="material-icons-outlined">feed</span>
-            <Link to="/mynotes"> My Notes</Link>
+            <Link className="link" to="/mynotes"> My Notes</Link>
           </li>
-          <li>
+          <li className='li'>
             <span className="material-icons-outlined">star_border</span>
-            <Link to="/favorites"> Favorites</Link>
+            <Link className="link" to="/favorites"> Favorites</Link>
           </li>
-          <li>
+          <li className='li'>
             <span className="material-icons-outlined">add</span>
-            <Link to="/new"> New</Link>
+            <Link className="link" to="/new"> New</Link>
           </li>
         </NavList>
       </Nav>
-
     </div>
   );
 };
