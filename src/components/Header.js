@@ -48,7 +48,7 @@ const Header = props => {
   return (
     <HeaderBar>
       <Link to="/"><img src={logo} alt="Notes Logo" height="40" /></Link>
-      <LogoText><Link style={{ textDecoration: 'none', color: '#000000' }} to="/">Notes</Link></LogoText>
+      <LogoText><Link style={{ textDecoration: 'none', color: '#000000' }} to="/"><span style={{color: "#0077cc"}}>N</span>otes</Link></LogoText>
       <UserState>
         {/*if logged in then dispplay a logout link, else display sign in options */}
         {data.isLoggedIn ? (
