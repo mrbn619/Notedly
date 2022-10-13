@@ -35,7 +35,7 @@ const SignUp = props => {
       {/*if data is loading, display the loading message */}
       {loading && <Loading />}
       {/*if there is an error, display the error message */}
-      {error && <p>Error creating an account!</p>}
+      {error && <p>username/e-mail already in use.<br/>Please choose a different username/e-mail.</p>}
     </React.Fragment>
   );
 };

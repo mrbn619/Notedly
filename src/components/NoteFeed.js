@@ -33,8 +33,13 @@ const LinkBox = styled.div`
   }
 
   @media (max-width: 700px) {
-  :hover {
+    height: 40px;
+    width: 40px;
+    transition: none;
+
+    :hover {
       box-shadow: none;
+      border: 1px solid #333;
     }
   }
 `;

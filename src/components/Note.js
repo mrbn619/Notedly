@@ -17,7 +17,7 @@ const StyledNote = styled.article`
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 1em;
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 5px 15px 5px rgba(0, 0, 0, 0.25);
   border-radius: 1%;
   padding: 1em;
 
@@ -90,7 +90,7 @@ const ContentWrapper = styled.div`
 
   @media (max-width: 700px) {
     :hover {
-      padding-left: 1em;
+      padding-left: 0px;
     }
   }
 `;

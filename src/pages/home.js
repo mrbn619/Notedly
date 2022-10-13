@@ -20,8 +20,13 @@ const ArrowWrapper = styled.div`
   }
 
   @media (max-width: 700px) {
+    height: 40px;
+    width: 40px;
+    transition: none;
+
     :hover {
       box-shadow: none;
+      border: 1px solid #333;
     }
   }
 `;
@@ -50,7 +55,7 @@ const Home = () => {
       <NoteFeed notes={data.noteFeed.notes} />
       {/* only display Load more button if hasNextPage is true*/}
       {data.noteFeed.hasNextPage && (
-        <ButtonAsLink id="link-btn"
+        <ButtonAsLink 
           onClick={() =>
             fetchMore({
               variables: {

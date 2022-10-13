@@ -16,6 +16,11 @@ const Loader = styled.div`
     border-radius: 50%;
     border-top: 2px solid #6c7378;
     animation: spinner 1.5s linear infinite;
+
+    @media(max-width: 700px){
+        height: 60px;
+        width: 60px;
+    }
     
     @keyframes spinner {
         0% {transform: rotate(0deg);}
