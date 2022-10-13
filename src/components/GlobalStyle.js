@@ -12,12 +12,14 @@ export default createGlobalStyle`
     
     /* width */
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 8px;
+      height: 4px;
     }
 
     @media(max-width: 700px) {
         ::-webkit-scrollbar {
-            width: 5px;
+            width: 4px;
+            height: 4px;
         }
     }
 
