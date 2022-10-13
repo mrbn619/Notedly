@@ -18,7 +18,7 @@ const StyledNote = styled.article`
   margin: 0 auto;
   margin-bottom: 1em;
   box-shadow: 1px 5px 15px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 1%;
+  border-radius: 10px;
   padding: 1em;
 
   @media (max-width: 700px) {
@@ -42,7 +42,7 @@ const MetaInfo = styled.div`
 
   img {
     border: 2px solid #333;
-    border-radius: 5%;
+    border-radius: 10px;
     padding: 5px;
   }
 `;
@@ -56,7 +56,7 @@ const UserActions = styled.div`
 
   :hover {
     box-shadow: 1px 5px 15px 5px rgba(0, 119, 204, 0.25);
-    border-radius: 5%;
+    border-radius: 10px;
   }
 
   @media (max-width: 700px) {

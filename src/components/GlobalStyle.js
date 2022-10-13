@@ -9,6 +9,32 @@ export default createGlobalStyle`
     *, *:before, *:after {
         box-sizing: border-box;
     }
+    
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    @media(max-width: 700px) {
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+      border-radius: 10px;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 119, 204, 0.5); 
+      border-radius: 10px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(51, 51, 51, 0.5); 
+    }
 
     body,
     html {

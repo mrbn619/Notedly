@@ -72,7 +72,7 @@ const StyledButton = styled.button`
   position: relative;
   background: transparent;
   border: 2px solid #333;
-  border-radius: 10%;
+  border-radius: 5px;
 
   :hover {
     border: none;
