@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  box-shadow: 1px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),0 2px 6px 2px rgba(60, 64, 67, 0.15);
   border-radius: 10px;
   max-width: 500px;
   padding: 1em;
-  margin: 0 auto;
+  margin: auto;
 `;
 
 const Form = styled.form`

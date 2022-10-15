@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -15,12 +15,15 @@ const Nav = styled.nav`
   }
 
   @media(max-width: 700px){
-    position: relative;
     display: ${props => props.disp};
+    position: relative;
+    width: 220px;
+    top: 70px;
     background: #fff;
-    border: 2px solid #333;
-    border-radius: 2%;
-    margin: 0.5rem 1.5rem 0.5rem 1rem;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),0 2px 6px 2px rgba(60, 64, 67, 0.15);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 1em;
     z-index: 1;
   }
 `;
@@ -68,58 +71,12 @@ const NavList = styled.ul`
   
 `;
 
-const StyledButton = styled.button`
-  position: relative;
-  background: transparent;
-  border: 2px solid #333;
-  border-radius: 5px;
 
-  :hover {
-    border: none;
-    background: #0077cc;
-    color: #fff;
-  }
-
-  @media(max-width: 700px) {
-    margin-top: calc(80px + 0.5rem);
-    margin-left: 1rem;
-    height: 30px;
-    width: 30px;
-  }
-
-  @media(min-width: 700px){
-    display: none;
-  }
-`;
-
-
-const Navigation = () => {
-
-  const [isShown, setIsShown] = useState('none');
-
-  const toggleNav = () => {
-    if (isShown == 'none') {
-      setIsShown('inherit');
-    } else {
-      setIsShown('none');
-    }
-  };
+const Navigation = ({disp}) => {
 
   return (
     <div>
-      <StyledButton onClick={toggleNav}>
-        {isShown === 'none' ? (
-          <span className="material-icons-outlined" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            menu
-          </span>
-        ) : (
-          <span className="material-icons-outlined" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            close
-          </span>
-        )
-        }
-      </StyledButton>
-      <Nav disp={isShown}>
+      <Nav disp={disp}>
         <NavList>
           <li className='li'>
             <span className="material-icons-outlined">home</span>

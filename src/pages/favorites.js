@@ -27,7 +27,7 @@ const Favorites = () => {
       </div>
     );
   } else {
-    return <p>No favorites yet</p>;
+    return <p>No <i>favorites</i> yet!</p>;
   }
 };
 

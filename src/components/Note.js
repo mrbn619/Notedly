@@ -17,7 +17,7 @@ const StyledNote = styled.article`
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 1em;
-  box-shadow: 1px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),0 2px 6px 2px rgba(60, 64, 67, 0.15);
   border-radius: 10px;
   padding: 1em;
 
@@ -41,9 +41,13 @@ const MetaInfo = styled.div`
   padding-bottom: 1em;
 
   img {
-    border: 2px solid #333;
+    border: 1px solid #333;
     border-radius: 10px;
     padding: 5px;
+
+    @media(max-width: 700px) {
+      border-radius: 5px;
+    }
   }
 `;
 
@@ -51,19 +55,18 @@ const MetaInfo = styled.div`
 const UserActions = styled.div`
   margin-left: auto;
   padding: 0.5em;
-  transition: ease 1s;
   border: 1px solid #f6f6f6;
+  border-radius: 10px;
 
   :hover {
-    box-shadow: 1px 5px 15px 5px rgba(0, 119, 204, 0.25);
-    border-radius: 10px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 119, 204, 0.3), 0px 2px 6px 2px rgba(0, 119, 204, 0.15);
   }
 
   @media (max-width: 700px) {
-    transition: none;
+    border: 1px solid #333;
+    border-radius: 5px;
 
-    :hover{
-      border: 1px solid #333;
+    :hover {
       box-shadow: none;
     }
   }
@@ -82,7 +85,7 @@ const UserActions = styled.div`
 //content wrapper
 const ContentWrapper = styled.div`
   overflow: auto;
-  transition: ease 1s;
+  transition: ease-in-out 1s;
 
   :hover {
     padding-left: 1em;

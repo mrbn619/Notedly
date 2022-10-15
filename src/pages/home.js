@@ -10,23 +10,21 @@ const ArrowWrapper = styled.div`
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: ease 1s;
+  display: block;
+  padding: 12px;
 
   :hover {
-    box-shadow: 1px 5px 15px 5px rgba(0, 119, 204, 0.25);
+    box-shadow: 0 1px 2px 0 rgba(0, 119, 204, 0.3),0 2px 6px 2px rgba(0, 119, 204, 0.15);
   }
 
   @media (max-width: 700px) {
     height: 40px;
     width: 40px;
-    transition: none;
+    padding: 7px;
+    border: 1px solid #333;
 
     :hover {
       box-shadow: none;
-      border: 1px solid #333;
     }
   }
 `;

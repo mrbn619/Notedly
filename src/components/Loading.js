@@ -18,8 +18,8 @@ const Loader = styled.div`
     animation: spinner 1.5s linear infinite;
 
     @media(max-width: 700px){
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
     }
     
     @keyframes spinner {

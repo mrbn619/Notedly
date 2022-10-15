@@ -42,7 +42,7 @@ const NoteForm = props => {
           required
           type="text"
           name="content"
-          placeholder="Note Content"
+          placeholder="Type your content here (supports markdown) ..."
           value={value.content}
           onChange={onChange}
         />

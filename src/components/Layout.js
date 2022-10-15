@@ -34,17 +34,22 @@ const Main = styled.main`
   }
 
   @media(max-width: 700px){
-    top: calc(120px + 1rem);
-    height: calc(100% - calc(120px + 1rem));
+    top: 80px;
+    height: calc(100% - 80px);
   }
 `;
 
+const Nav = styled.div`
+  @media{max-width: 700px} {
+    display: none;
+  }
+`;
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Header />
       <Wrapper>
-        <Navigation />
+        <Navigation disp={'none'}/>
         <Main id="scroll" >{children}</Main>
       </Wrapper>
     </React.Fragment>
