@@ -87,7 +87,7 @@ const ContentWrapper = styled.div`
   overflow: auto;
   transition: ease-in-out 1s;
 
-  :hover {
+  /*:hover {
     padding-left: 1em;
   }
 
@@ -95,7 +95,7 @@ const ContentWrapper = styled.div`
     :hover {
       padding-left: 0px;
     }
-  }
+  }*/
 `;
 
 const Note = ({ note }) => {
