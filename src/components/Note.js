@@ -85,17 +85,6 @@ const UserActions = styled.div`
 //content wrapper
 const ContentWrapper = styled.div`
   overflow: auto;
-  transition: ease-in-out 1s;
-
-  /*:hover {
-    padding-left: 1em;
-  }
-
-  @media (max-width: 700px) {
-    :hover {
-      padding-left: 0px;
-    }
-  }*/
 `;
 
 const Note = ({ note }) => {
