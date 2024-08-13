@@ -70,3 +70,6 @@ dist
 # cypress videos & screenshots
 cypress/videos
 cypress/screenshots
+
+#dockerfile
+Dockerfile

@@ -17,14 +17,14 @@ import { setContext } from 'apollo-link-context';
 import GlobalStyle from './components/GlobalStyle';
 
 //import routes
-import Pages from '/pages';
+import Pages from './pages';
 
 //configure our Api uri and cache
 const uri = process.env.API_URI;
 const httpLink = createHttpLink({ uri });
 const cache = new InMemoryCache();
 
-//check for a token and return the headers to the context
+//check for a token and return the updated headers to the context
 const authLink = setContext((_, { headers }) => {
   return {
     headers: {

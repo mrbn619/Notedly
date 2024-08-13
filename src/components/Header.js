@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import logo from '../img/logo.svg';
+import Logo from 'url:../img/logo.svg';
 import { useQuery } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
 import ButtonAsLink from './ButtonAsLink';
@@ -84,7 +84,7 @@ const Header = props => {
   return (
     <div>
       <HeaderBar>
-        <Link to="/"><img src={logo} alt="Notes Logo" height="40" /></Link>
+        <Link to="/"><img src={Logo} alt="Notes Logo" height="40" /></Link>
         <LogoText><Link style={{ textDecoration: 'none', color: '#000000' }} to="/"><span style={{ color: "#0077cc" }}>N</span>otes</Link></LogoText>
         <UserState>
           {/*if logged in then dispplay a logout link, else display sign in options */}
