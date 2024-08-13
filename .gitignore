@@ -70,9 +70,7 @@ dist
 # cypress videos & screenshots
 cypress/videos
 cypress/screenshots
+<<<<<<< HEAD
 
 #dockerfile
 Dockerfile
-
-#babel
-.babelrc

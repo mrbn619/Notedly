@@ -11,15 +11,15 @@ const Wrapper = styled.div `
 `;
 
 const Loader = styled.div`
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border-top: 2px solid #6c7378;
     animation: spinner 1.5s linear infinite;
 
     @media(max-width: 700px){
-        height: 30px;
-        width: 30px;
+        height: 50px;
+        width: 50px;
     }
     
     @keyframes spinner {

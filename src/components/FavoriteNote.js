@@ -38,12 +38,7 @@ const FavoriteNote = props => {
           }}
         >
           <abbr title="Remove Favorite">
-            <span
-              style={{ color: '#ff0000' }}
-              className="material-icons-outlined"
-            >
-              favorite
-            </span>
+            <span style={{color: '#ff0000'}} className="material-icons-outlined">favorite</span>
           </abbr>
         </ButtonAsLink>
       ) : (
@@ -55,12 +50,7 @@ const FavoriteNote = props => {
           }}
         >
           <abbr title="Add Favorite">
-            <span
-              style={{ color: '#ff0000' }}
-              className="material-icons-outlined"
-            >
-              favorite_border
-            </span>
+            <span style={{color: '#ff0000'}} className="material-icons-outlined">favorite_border</span>
           </abbr>
         </ButtonAsLink>
       )}

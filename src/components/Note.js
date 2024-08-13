@@ -90,7 +90,7 @@ const ContentWrapper = styled.div`
 const Note = ({ note }) => {
   //IS_LOGGED_IN query
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
-  
+
   //if loading, display the loading message
   if (loading) return <Loading />;
 
@@ -103,8 +103,7 @@ const Note = ({ note }) => {
         <MetaInfo>
           <img
             src={note.author.avatar}
-            crossOrigin=""
-            alt="avatar"
+            alt="{note.author.username} avatar"
             height="50px"
             width="50px"
           />
