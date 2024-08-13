@@ -73,3 +73,6 @@ cypress/screenshots
 
 #dockerfile
 Dockerfile
+
+#babel
+.babelrc
