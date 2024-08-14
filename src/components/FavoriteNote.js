@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import ButtonAsLink from './ButtonAsLink';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
 
 //import TOGGLE_FAVORITE mutation
 import { TOGGLE_FAVORITE } from '../gql/mutation';
@@ -38,7 +40,7 @@ const FavoriteNote = props => {
           }}
         >
           <abbr title="Remove Favorite">
-            <span style={{color: '#ff0000'}} className="material-icons-outlined">favorite</span>
+            <FavoriteOutlinedIcon style={{ color: '#ff0000' }} />
           </abbr>
         </ButtonAsLink>
       ) : (
@@ -50,7 +52,7 @@ const FavoriteNote = props => {
           }}
         >
           <abbr title="Add Favorite">
-            <span style={{color: '#ff0000'}} className="material-icons-outlined">favorite_border</span>
+            <FavoriteBorderOutlinedIcon style={{ color: '#ff0000' }} />
           </abbr>
         </ButtonAsLink>
       )}

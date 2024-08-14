@@ -1,51 +1,66 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import ButtonAsLink from './ButtonAsLink';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import EventNoteOutlinedIcon from '@material-ui/icons/EventNoteOutlined';
+import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import PresentToAllOutlinedIcon from '@material-ui/icons/PresentToAllOutlined';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+
+//import IS_LOGGED_IN query
+import { IS_LOGGED_IN } from '../gql/query';
 
 const Nav = styled.nav`
   padding: 1em;
-  background: #f5f4f0;
-  border: 2px solid #f6f6f6;
+  background: #fff;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 700px) {
     position: fixed;
-    width: 220px;
-    height: calc(100% - 80px);
+    width: 180px;
+    top: calc(80px + 2em);
+    border-radius: 10px;
+    height: calc(100% - 150px);
+    border: 1px solid #d9dcdc;
     overflow-y: auto;
   }
 
-  @media(max-width: 700px){
+  @media (max-width: 700px) {
     display: ${props => props.disp};
     position: relative;
-    width: 220px;
-    top: 70px;
-    background: #fff;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),0 2px 6px 2px rgba(60, 64, 67, 0.15);
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: 1em;
+    width: 100%;
+    top: 80px;
+    border-bottom: 1px solid #d9dcdc;
+    margin: auto;
     z-index: 1;
   }
 `;
 
-const NavList = styled.ul`
+const TopList = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
   line-height: 2;
-  
+  flex-grow: 1;
+
   /* we can nest styles in styled components */
   .li {
     display: flex;
     align-items: center;
-    gap: 5px;
-    transition: ease 0.3s;
+    justify-content: left;
+    padding-left: 5px;
+    gap: 10px;
   }
 
   .li:hover {
     color: #0077cc;
-    padding-left: 1rem;
-    border-left: 1px solid #0077cc;
+    background: #eef0f3;
+    border-radius: 5px;
   }
 
   /* the following styles will apply to links within NavList */
@@ -55,49 +70,104 @@ const NavList = styled.ul`
     font-size: 1.1em;
     color: #333;
   }
-  
+
   .link:visited {
     color: #333;
   }
 
-  .link:hover{
+  .link:hover {
     color: #0077cc;
   }
 
   .link:focus {
-    padding-left: 1rem;
     color: #0077cc;
   }
-  
 `;
 
+const BottomList = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 2;
+`;
 
-const Navigation = ({disp}) => {
+const StyledLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 0.25em;
+  padding-left: 5px;
+  font-size: 1.1rem;
+`;
 
+const Navigation = ({ disp, ...props }) => {
+  //query for user logged in state
+  const { data, client } = useQuery(IS_LOGGED_IN);
   return (
     <div>
       <Nav disp={disp}>
-        <NavList>
-          <li className='li'>
-            <span className="material-icons-outlined">home</span>
-            <Link className="link" to="/"> Home</Link>
+        <TopList>
+          <li className="li">
+            <HomeOutlinedIcon />
+            <Link className="link" to="/">
+              {' '}
+              Home
+            </Link>
           </li>
-          <li className='li'>
-            <span className="material-icons-outlined">feed</span>
-            <Link className="link" to="/mynotes"> My Notes</Link>
+          <li className="li">
+            <EventNoteOutlinedIcon />
+            <Link className="link" to="/mynotes">
+              {' '}
+              My Notes
+            </Link>
           </li>
-          <li className='li'>
-            <span className="material-icons-outlined">star_border</span>
-            <Link className="link" to="/favorites"> Favorites</Link>
+          <li className="li">
+            <FavoriteBorderOutlinedIcon />
+            <Link className="link" to="/favorites">
+              {' '}
+              Favorites
+            </Link>
           </li>
-          <li className='li'>
-            <span className="material-icons-outlined">add</span>
-            <Link className="link" to="/new"> New</Link>
+          <li className="li">
+            <AddOutlinedIcon />
+            <Link className="link" to="/new">
+              {' '}
+              New
+            </Link>
           </li>
-        </NavList>
+        </TopList>
+        <BottomList>
+          {/*if logged in then dispplay a logout link, else display sign in options */}
+          {data.isLoggedIn ? (
+            <div>
+              <ButtonAsLink
+                onClick={() => {
+                  //remove the token
+                  localStorage.removeItem('token');
+                  //clear the application cache
+                  client.resetStore();
+                  //update the local state
+                  client.writeData({ data: { isLoggedIn: false } });
+                  //redirect the user to homepage
+                  props.history.push('/');
+                }}
+              >
+                <StyledLink>
+                  <PresentToAllOutlinedIcon /> <p>Sign Out</p>
+                </StyledLink>
+              </ButtonAsLink>
+            </div>
+          ) : (
+            <Link style={{ textDecoration: 'none' }} to="signin">
+              <StyledLink>
+                <ExitToAppOutlinedIcon /> <p>Sign In</p>
+              </StyledLink>
+            </Link>
+          )}
+        </BottomList>
       </Nav>
     </div>
   );
 };
 
-export default Navigation;
+export default withRouter(Navigation);

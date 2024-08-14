@@ -4,24 +4,29 @@ import NoteFeed from '../components/NoteFeed';
 import ButtonAsLink from '../components/ButtonAsLink';
 import Loading from '../components/Loading';
 import styled from 'styled-components';
+import ArrowDownwardOutlinedIcon from '@material-ui/icons/ArrowDownwardOutlined';
 
 const ArrowWrapper = styled.div`
-  border: 1px solid #f6f6f6;
+  border: 1px solid #d9dcdc;
+  background: #fff;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   display: block;
   padding: 12px;
+  margin-left: 1em;
 
   :hover {
-    box-shadow: 0 1px 2px 0 rgba(0, 119, 204, 0.3),0 2px 6px 2px rgba(0, 119, 204, 0.15);
+    box-shadow: 0 1px 2px 0 rgba(0, 119, 204, 0.3),
+      0 2px 6px 2px rgba(0, 119, 204, 0.15);
   }
 
   @media (max-width: 700px) {
     height: 40px;
     width: 40px;
     padding: 7px;
-    border: 1px solid #333;
+    border: 1px solid #d9dcdc;
+    margin: auto;
 
     :hover {
       box-shadow: none;
@@ -53,7 +58,7 @@ const Home = () => {
       <NoteFeed notes={data.noteFeed.notes} />
       {/* only display Load more button if hasNextPage is true*/}
       {data.noteFeed.hasNextPage && (
-        <ButtonAsLink 
+        <ButtonAsLink
           onClick={() =>
             fetchMore({
               variables: {
@@ -75,11 +80,10 @@ const Home = () => {
               }
             })
           }
-        ><ArrowWrapper>
-            <abbr title='Fetch more'>
-              <span className="material-icons-outlined">
-                south
-              </span>
+        >
+          <ArrowWrapper>
+            <abbr title="Fetch more">
+              <ArrowDownwardOutlinedIcon />
             </abbr>
           </ArrowWrapper>
         </ButtonAsLink>

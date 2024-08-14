@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Header from "./Header";
-import Navigation from "./Navigation";
+import React from 'react';
+import styled from 'styled-components';
+import Header from './Header';
+import Navigation from './Navigation';
 
 //component styles
 const Wrapper = styled.div`
@@ -28,19 +28,22 @@ const Main = styled.main`
   /*again apply media query styles for screens above 700 px*/
   @media (min-width: 700px) {
     flex: 1;
-    margin-left: 220px;
+    margin-left: 180px;
     height: calc(100% - 80px);
-    width: calc(100% - 220px);
+    width: calc(100% - 180px);
   }
 
-  @media(max-width: 700px){
+  @media (max-width: 700px) {
     top: 80px;
     height: calc(100% - 80px);
   }
 `;
 
 const Nav = styled.div`
-  @media{max-width: 700px} {
+  @media {
+    max-width: 700px;
+  }
+   {
     display: none;
   }
 `;
@@ -49,8 +52,8 @@ const Layout = ({ children }) => {
     <React.Fragment>
       <Header />
       <Wrapper>
-        <Navigation disp={'none'}/>
-        <Main id="scroll" >{children}</Main>
+        <Navigation disp={'none'} />
+        <Main id="scroll">{children}</Main>
       </Wrapper>
     </React.Fragment>
   );

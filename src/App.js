@@ -17,7 +17,7 @@ import { setContext } from 'apollo-link-context';
 import GlobalStyle from './components/GlobalStyle';
 
 //import routes
-import Pages from '/pages';
+import Pages from './pages';
 
 //configure our Api uri and cache
 const uri = process.env.API_URI;

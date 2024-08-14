@@ -4,6 +4,7 @@ import Button from './Button';
 
 const Wrapper = styled.div`
   height: 100%;
+  margin: 1em;
 `;
 
 const Form = styled.form`
@@ -12,7 +13,9 @@ const Form = styled.form`
 
 const TextArea = styled.textarea`
   width: 100%;
-  height: 90%;
+  height: 85%;
+  border: 1px solid #d9dcdc;
+  border-radius: 10px;
 `;
 
 const NoteForm = props => {

@@ -4,11 +4,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  background: #fff;
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 350px;
   padding: 1em;
   margin: auto;
+  margin-top: 1em;
 `;
 
 const Form = styled.form`
@@ -34,7 +37,6 @@ const UserForm = props => {
       [event.target.name]: event.target.value
     });
   };
-
 
   return (
     <Wrapper>
@@ -85,8 +87,16 @@ const UserForm = props => {
         />
         {props.formType === 'signin' && (
           <React.Fragment>
-            <em>not a member?{' '}</em>
-            <Link style={{ textDecoration: 'none', fontSize: '1.1rem' }} to="/signup">Sign Up</Link>
+            <em>not a member? </em>
+            <Link
+              style={{
+                textDecoration: 'none',
+                fontSize: '1.1rem'
+              }}
+              to="/signup"
+            >
+              Sign Up
+            </Link>
           </React.Fragment>
         )}
         <p> </p>

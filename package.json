@@ -14,7 +14,10 @@
     "url": "git+https://github.com/mrbn619/notes"
   },
   "keywords": [],
-  "author": ["Adam Scott", "mrbn619"],
+  "author": [
+    "Adam Scott",
+    "mrbn619"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mrbn619/notes/issues"
@@ -22,6 +25,7 @@
   "homepage": "https://github.com/mrbn619/notes#readme",
   "dependencies": {
     "@apollo/client": "3.0.0-beta.24",
+    "@material-ui/icons": "^4.11.3",
     "@types/react": "^16.9.17",
     "apollo-link-context": "1.0.19",
     "date-fns": "1.30.1",

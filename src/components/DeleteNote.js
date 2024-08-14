@@ -2,6 +2,7 @@ import React from 'react';
 import { useMutation } from '@apollo/client';
 import { withRouter } from 'react-router-dom';
 import ButtonAsLink from './ButtonAsLink';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 //import the DELETE_NOTE mutation
 import { DELETE_NOTE } from '../gql/mutation';
@@ -25,7 +26,7 @@ const DeleteNote = props => {
   return (
     <ButtonAsLink onClick={deleteNote}>
       <abbr title="Delete Note">
-        <span className="material-icons-outlined">delete</span>
+          <DeleteOutlineOutlinedIcon/>
       </abbr>
     </ButtonAsLink>
   );

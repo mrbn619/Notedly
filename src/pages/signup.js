@@ -1,7 +1,17 @@
 import React, { useEffect } from 'react';
 import { useMutation, useApolloClient } from '@apollo/client';
 import UserForm from '../components/UserForm';
-import Loading from '../components/Loading';
+import LoadingSmall from '../components/LoadingSmall';
+import Styled from 'styled-components';
+
+const Wrapper = Styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    margin-top: 1em;
+`;
 
 //import SIGNUP_USER mutation
 import { SIGNUP_USER } from '../gql/mutation';
@@ -32,10 +42,18 @@ const SignUp = props => {
   return (
     <React.Fragment>
       <UserForm action={signUp} formType="signup" />
-      {/*if data is loading, display the loading message */}
-      {loading && <Loading />}
-      {/*if there is an error, display the error message */}
-      {error && <p>username/e-mail already in use.<br/>Please choose a different username/e-mail.</p>}
+      <Wrapper>
+        {/*if data is loading, display the loading message */}
+        {loading && <LoadingSmall />}
+        {/*if there is an error, display the error message */}
+        {error && (
+          <p>
+            username/e-mail already in use.
+            <br />
+            Please choose a different username/e-mail.
+          </p>
+        )}
+      </Wrapper>
     </React.Fragment>
   );
 };

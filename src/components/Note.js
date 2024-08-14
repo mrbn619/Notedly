@@ -2,6 +2,8 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Loading from './Loading';
+import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 
 import styled from 'styled-components';
 import NoteUser from './NoteUser';
@@ -14,16 +16,18 @@ import { format } from 'date-fns';
 
 //keep notes from extending wider than 800px
 const StyledNote = styled.article`
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   margin-bottom: 1em;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
   border-radius: 10px;
   padding: 1em;
+  background: #fff;
 
   @media (max-width: 700px) {
     box-shadow: none;
-    padding: 0px;
+    border: 1px solid #d9dcdc;
   }
 `;
 
@@ -45,7 +49,7 @@ const MetaInfo = styled.div`
     border-radius: 10px;
     padding: 5px;
 
-    @media(max-width: 700px) {
+    @media (max-width: 700px) {
       border-radius: 5px;
     }
   }
@@ -55,30 +59,17 @@ const MetaInfo = styled.div`
 const UserActions = styled.div`
   margin-left: auto;
   padding: 0.5em;
-  border: 1px solid #f6f6f6;
+  border: 1px solid #d9dcdc;
   border-radius: 10px;
 
-  :hover {
-    box-shadow: 0px 1px 2px 0px rgba(0, 119, 204, 0.3), 0px 2px 6px 2px rgba(0, 119, 204, 0.15);
-  }
-
   @media (max-width: 700px) {
-    border: 1px solid #333;
     border-radius: 5px;
-
-    :hover {
-      box-shadow: none;
-    }
   }
 
   @media (max-width: 500px) {
     display: flex;
     align-items: top;
     gap: 0.5em;
-    
-    :hover {
-      box-shadow: none;
-    }
   }
 `;
 
@@ -118,17 +109,15 @@ const Note = ({ note }) => {
           </UserActions>
         ) : (
           <UserActions>
-            {
-              note.favoriteCount > 0 ? (
-                <abbr title='Likes'>
-                  <span style={{ color: '#ff0000' }} className="material-icons-outlined">favorite </span>
-                </abbr>
-              ) : (
-                <abbr title='Likes'>
-                  <span style={{ color: '#ff0000' }} className="material-icons-outlined">favorite_border </span>
-                </abbr>
-              )
-            }
+            {note.favoriteCount > 0 ? (
+              <abbr title="Likes">
+                <FavoriteOutlinedIcon style={{ color: '#ff0000' }} />
+              </abbr>
+            ) : (
+              <abbr title="Likes">
+                <FavoriteBorderOutlinedIcon style={{ color: '#ff0000' }} />
+              </abbr>
+            )}
             {note.favoriteCount}
           </UserActions>
         )}
@@ -136,7 +125,7 @@ const Note = ({ note }) => {
       <ContentWrapper>
         <ReactMarkdown children={note.content} remarkPlugins={[remarkGfm]} />
       </ContentWrapper>
-    </StyledNote >
+    </StyledNote>
   );
 };
 

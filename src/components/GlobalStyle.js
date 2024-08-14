@@ -30,12 +30,12 @@ export default createGlobalStyle`
     }
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: rgba(0, 119, 204, 0.5); 
+      background: rgba(51, 51, 51, 0.5); 
       border-radius: 10px;
     }
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(51, 51, 51, 0.5); 
+      background: rgba(0, 119, 204, 0.5); 
     }
 
     body,
@@ -49,6 +49,7 @@ export default createGlobalStyle`
         Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
         background-color: #fff;
         line-height: 1.4;
+        background: #EEF0F3;
     }
 
     a:link,

@@ -5,6 +5,10 @@ import { useQuery } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
 import ButtonAsLink from './ButtonAsLink';
 import Navigation from './Navigation';
+import PresentToAllOutlinedIcon from '@material-ui/icons/PresentToAllOutlined';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import DehazeOutlinedIcon from '@material-ui/icons/DehazeOutlined';
+import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 
 //import IS_LOGGED_IN query
 import { IS_LOGGED_IN } from '../gql/query';
@@ -17,7 +21,7 @@ const HeaderBar = styled.header`
   position: fixed;
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  border-bottom: 1px solid #d9dcdc;
   z-index: 1;
 `;
 
@@ -27,14 +31,17 @@ const LogoText = styled.h1`
   display: inline;
 `;
 
-const UserState = styled.div`
+const RightCorner = styled.div`
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 `;
 
 const StyledLink = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.25em;
+  gap: 0.5em;
   font-size: 1.1rem;
 `;
 
@@ -51,25 +58,27 @@ const StyledButton = styled.button`
   :hover {
     opacity: 0.8;
   }
-  
+
   :active {
     background-color: #005fa3;
   }
 
-  @media(max-width: 700px) {
-    margin-left: 1rem;
+  @media (max-width: 700px) {
     height: 36px;
     width: 36px;
   }
 
-  @media(min-width: 700px){
+  @media (min-width: 700px) {
     display: none;
   }
 `;
 
 const Header = props => {
+  if (props.match.params.id) {
+    console.log(props.match.params.id);
+  }
   //query hook for user logged in state
-  const { data, client } = useQuery(IS_LOGGED_IN);
+  const { data } = useQuery(IS_LOGGED_IN);
   //change the state for toggling navigation bar
   const [isShown, setIsShown] = useState('none');
   //toggle nav
@@ -84,55 +93,35 @@ const Header = props => {
   return (
     <div>
       <HeaderBar>
-        <Link to="/"><img src={logo} alt="Notes Logo" height="40" /></Link>
-        <LogoText><Link style={{ textDecoration: 'none', color: '#000000' }} to="/"><span style={{ color: "#0077cc" }}>N</span>otes</Link></LogoText>
-        <UserState>
-          {/*if logged in then dispplay a logout link, else display sign in options */}
-          {data.isLoggedIn ? (
-            <div>
-              <ButtonAsLink
-                onClick={() => {
-                  //remove the token
-                  localStorage.removeItem('token');
-                  //clear the application cache
-                  client.resetStore();
-                  //update the local state
-                  client.writeData({ data: { isLoggedIn: false } });
-                  //redirect the user to homepage
-                  props.history.push('/');
-                }}
-              >
-                <StyledLink>
-                  <span className="material-icons-outlined" style={{ fontSize: '1.5rem' }}>
-                    logout
-                  </span>
-                  <p>Sign Out</p>
-                </StyledLink>
-              </ButtonAsLink>
-            </div>
-          ) : (
-            <Link style={{ textDecoration: 'none' }} to="signin">
-              <StyledLink>
-                <span className="material-icons-outlined" style={{ fontSize: '1.5rem' }}>
-                  login
-                </span>
-                <p>Sign In</p>
-              </StyledLink>
+        <Link to="/">
+          <img src={logo} alt="Notes Logo" height="40" />
+        </Link>
+        <LogoText>
+          <Link style={{ textDecoration: 'none', color: '#000000' }} to="/">
+            <span style={{ color: '#0077cc' }}>N</span>otes
+          </Link>
+        </LogoText>
+        <RightCorner>
+          {!data.isLoggedIn && (
+            <Link
+              style={{
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                marginLeft: 'auto'
+              }}
+              to="/signup"
+            >
+              Sign Up
             </Link>
           )}
-        </UserState>
-        <StyledButton onClick={toggleNav} disp={isShown}>
-          {isShown === 'none' ? (
-            <span className="material-icons-outlined" >
-              menu
-            </span>
-          ) : (
-            <span className="material-icons-outlined" >
-              close
-            </span>
-          )
-          }
-        </StyledButton>
+          <StyledButton onClick={toggleNav} disp={isShown}>
+            {isShown === 'none' ? (
+              <DehazeOutlinedIcon />
+            ) : (
+              <CloseOutlinedIcon />
+            )}
+          </StyledButton>
+        </RightCorner>
       </HeaderBar>
       <Navigation disp={isShown} />
     </div>
