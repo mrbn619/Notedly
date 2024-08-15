@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -101,6 +101,12 @@ const StyledLink = styled.div`
 `;
 
 const Navigation = ({ disp, ...props }) => {
+  // for styling the Favorite icon on nav bar
+  const [isHover, setIsHover] = useState(false);
+  const FavoriteStyle = {
+    color: isHover ? '#ff0000' : 'initial'
+  };
+
   //query for user logged in state
   const { data, client } = useQuery(IS_LOGGED_IN);
   return (
@@ -121,7 +127,12 @@ const Navigation = ({ disp, ...props }) => {
               My Notes
             </Link>
           </li>
-          <li className="li">
+          <li
+            className="li"
+            style={FavoriteStyle}
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+          >
             <FavoriteBorderOutlinedIcon />
             <Link className="link" to="/favorites">
               {' '}
@@ -137,13 +148,14 @@ const Navigation = ({ disp, ...props }) => {
           </li>
         </TopList>
         <BottomList>
-          {/*if logged in then dispplay a logout link, else display sign in options */}
+          {/*if logged in then display a logout link, else display sign in options */}
           {data.isLoggedIn ? (
             <div>
               <ButtonAsLink
                 onClick={() => {
-                  //remove the token
+                  //remove the token and username
                   localStorage.removeItem('token');
+                  localStorage.removeItem('username');
                   //clear the application cache
                   client.resetStore();
                   //update the local state

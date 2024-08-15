@@ -27,7 +27,6 @@ const SignIn = props => {
   //mutation hook
   const [signIn, { loading, error }] = useMutation(SIGNIN_USER, {
     onCompleted: data => {
-      console.log(data);
       //store the token
       localStorage.setItem('token', data.signIn);
       //update the local cache
