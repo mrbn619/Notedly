@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import DehazeOutlinedIcon from '@material-ui/icons/DehazeOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 
+import { useQuery } from '@apollo/client';
+import { GET_USERNAME } from '../gql/query';
+
 const CornerStyle = styled.div`
   margin-left: auto;
   display: flex;
@@ -40,8 +43,7 @@ const StyledButton = styled.button`
 `;
 
 const RightCorner = ({ logged, toggleNav, isShown }) => {
-  //get the username of logged in user
-  let userName = localStorage.getItem('username') || '';
+  const { data } = useQuery(GET_USERNAME);
 
   return (
     <CornerStyle>
@@ -57,14 +59,14 @@ const RightCorner = ({ logged, toggleNav, isShown }) => {
           Sign Up
         </Link>
       ) : (
-        userName && (
+        data && (
           <p
             style={{
               fontSize: '1.2 rem',
               color: '#0077cc'
             }}
           >
-            hello, <em style={{ fontWeight: 'bold' }}>{userName}</em>
+            hello, <em style={{ fontWeight: 'bold' }}>{data.userName}</em>
           </p>
         )
       )}

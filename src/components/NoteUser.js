@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useApolloClient } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import DeleteNote from './DeleteNote';
 import FavoriteNote from './FavoriteNote';
@@ -10,14 +10,16 @@ import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import { GET_ME } from '../gql/query';
 
 const NoteUser = props => {
+  const client = useApolloClient();
+
   const { loading, error, data } = useQuery(GET_ME);
   //if data is loading, display the loading message
   if (loading) return <LoadingSmall />;
   //if there was an error, display the error message
   //if (error) return <p>Please Reload!</p>;
-  if (error) return <LoadingSmall />;
+  if (error) return <p>please reload!</p>;
   // add username to local storage
-  localStorage.setItem('username', data.me.username);
+  client.writeData({ data: { userName: data.me.username } });
 
   return (
     <React.Fragment>
