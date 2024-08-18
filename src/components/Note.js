@@ -81,10 +81,8 @@ const ContentWrapper = styled.div`
 const Note = ({ note }) => {
   //IS_LOGGED_IN query
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
-
   //if loading, display the loading message
   if (loading) return <Loading />;
-
   //if there was an error, display the error message
   if (error) return <p>Error!</p>;
 

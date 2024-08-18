@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useApolloClient } from '@apollo/client';
 import ButtonAsLink from './ButtonAsLink';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import EventNoteOutlinedIcon from '@material-ui/icons/EventNoteOutlined';
@@ -108,7 +108,8 @@ const Navigation = ({ disp, ...props }) => {
   };
 
   //query for user logged in state
-  const { data, client } = useQuery(IS_LOGGED_IN);
+  const { data } = useQuery(IS_LOGGED_IN);
+  const client = useApolloClient();
   return (
     <div>
       <Nav disp={disp}>
@@ -153,11 +154,10 @@ const Navigation = ({ disp, ...props }) => {
             <div>
               <ButtonAsLink
                 onClick={() => {
-                  //remove the token and username
+                  //remove the token
                   localStorage.removeItem('token');
-                  localStorage.removeItem('username');
                   //clear the application cache
-                  client.resetStore();
+                  client.cache.reset();
                   //update the local state
                   client.writeData({ data: { isLoggedIn: false } });
                   //redirect the user to homepage
