@@ -17,7 +17,7 @@ const NoteUser = props => {
   if (loading) return <LoadingSmall />;
   //if there was an error, display the error message
   //if (error) return <p>Please Reload!</p>;
-  if (error) return <p>please reload!</p>;
+  if (error) return <p>Error!</p>;
   // add username to local storage
   client.writeData({ data: { userName: data.me.username } });
 

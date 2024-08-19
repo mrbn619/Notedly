@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'regenerator-runtime/runtime';
 import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery, useApolloClient } from '@apollo/client';
@@ -11,7 +12,7 @@ import PresentToAllOutlinedIcon from '@material-ui/icons/PresentToAllOutlined';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 
 //import IS_LOGGED_IN query
-import { IS_LOGGED_IN } from '../gql/query';
+import { IS_LOGGED_IN, GET_NOTES } from '../gql/query';
 
 const Nav = styled.nav`
   padding: 1em;
@@ -110,6 +111,13 @@ const Navigation = ({ disp, ...props }) => {
   //query for user logged in state
   const { data } = useQuery(IS_LOGGED_IN);
   const client = useApolloClient();
+
+  const refetchQueries = async () => {
+    await client.query({
+      query: GET_NOTES
+    });
+  };
+
   return (
     <div>
       <Nav disp={disp}>
@@ -160,6 +168,8 @@ const Navigation = ({ disp, ...props }) => {
                   client.cache.reset();
                   //update the local state
                   client.writeData({ data: { isLoggedIn: false } });
+                  //refetch notefeed
+                  refetchQueries();
                   //redirect the user to homepage
                   props.history.push('/');
                 }}

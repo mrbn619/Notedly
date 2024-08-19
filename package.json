@@ -35,6 +35,7 @@
     "react-dom": "^16.12.0",
     "react-markdown": "^8.0.3",
     "react-router-dom": "5.1.2",
+    "regenerator-runtime": "^0.14.1",
     "remark-gfm": "^3.0.1",
     "styled-components": "4.4.1"
   },
