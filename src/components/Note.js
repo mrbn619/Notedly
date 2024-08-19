@@ -91,8 +91,8 @@ const ContentWrapper = styled.div`
   blockquote {
     margin: 1em 0;
     padding: 0.5em 1em;
-    background: #eef0f3;
-    border-left: 4px solid #d9dcdc;
+    background: #f9fafc;
+    border-left: 3px solid #d9dcdc;
     border-radius: 10px;
   }
 
@@ -110,7 +110,7 @@ const ContentWrapper = styled.div`
     }
 
     th {
-      background: #eef0f3;
+      background: #f9fafc;
     }
   }
 
@@ -126,7 +126,7 @@ const ContentWrapper = styled.div`
 
 //markdown styling for inline code
 const InlineCode = styled.code`
-  background-color: #eef0f3;
+  background-color: #f9fafc;
   padding: 2px 4px;
   border-radius: 5px;
   border: 1px solid #d9dcdc;

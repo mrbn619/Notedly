@@ -54,13 +54,15 @@ const TopList = styled.ul`
     display: flex;
     align-items: center;
     justify-content: left;
+    border-left: 3px solid #fff;
     padding-left: 5px;
     gap: 10px;
   }
 
   .li:hover {
     color: #0077cc;
-    background: #eef0f3;
+    background: #f9fafc;
+    border-left: 3px solid #d9dcdc;
     border-radius: 5px;
   }
 
