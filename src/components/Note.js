@@ -45,7 +45,7 @@ const MetaInfo = styled.div`
   padding-bottom: 1em;
 
   img {
-    border: 1px solid #333;
+    border: 1px solid #d9dcdc;
     border-radius: 10px;
     padding: 5px;
 
@@ -76,6 +76,60 @@ const UserActions = styled.div`
 //content wrapper
 const ContentWrapper = styled.div`
   overflow: auto;
+  line-height: 1.6;
+
+  p {
+    margin: 1em 0;
+  }
+
+  ul,
+  ol {
+    margin: 1em 0;
+    padding-left: 1.5em;
+  }
+
+  blockquote {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    background: #eef0f3;
+    border-left: 4px solid #d9dcdc;
+    border-radius: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    border-radius: 10px;
+    overflow: hidden;
+
+    th,
+    td {
+      padding: 0.5em;
+      border: 1px solid #d9dcdc;
+    }
+
+    th {
+      background: #eef0f3;
+    }
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #d9dcdc;
+    border-radius: 10px;
+    margin: 1em 0;
+  }
+`;
+
+//markdown styling for inline code
+const InlineCode = styled.code`
+  background-color: #eef0f3;
+  padding: 2px 4px;
+  border-radius: 5px;
+  border: 1px solid #d9dcdc;
 `;
 
 const Note = ({ note }) => {
@@ -121,7 +175,11 @@ const Note = ({ note }) => {
         )}
       </MetaData>
       <ContentWrapper>
-        <ReactMarkdown children={note.content} remarkPlugins={[remarkGfm]} />
+        <ReactMarkdown
+          children={note.content}
+          remarkPlugins={[remarkGfm]}
+          components={{ code: InlineCode }}
+        />
       </ContentWrapper>
     </StyledNote>
   );
