@@ -37,7 +37,6 @@ const SignIn = props => {
       else props.history.push('/');
     }
   });
-
   return (
     <React.Fragment>
       <UserForm action={signIn} formType="signin" />

@@ -28,9 +28,9 @@ const Main = styled.main`
   /*again apply media query styles for screens above 700 px*/
   @media (min-width: 700px) {
     flex: 1;
-    margin-left: 180px;
+    margin-left: calc(180px + 1em);
     height: calc(100% - 80px);
-    width: calc(100% - 180px);
+    width: calc(100% - calc(180px + 1em));
   }
 
   @media (max-width: 700px) {
@@ -39,14 +39,6 @@ const Main = styled.main`
   }
 `;
 
-const Nav = styled.div`
-  @media {
-    max-width: 700px;
-  }
-   {
-    display: none;
-  }
-`;
 const Layout = ({ children }) => {
   return (
     <React.Fragment>

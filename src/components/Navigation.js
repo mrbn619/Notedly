@@ -15,7 +15,6 @@ import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import { IS_LOGGED_IN, GET_NOTES } from '../gql/query';
 
 const Nav = styled.nav`
-  padding: 1em;
   background: #fff;
   margin-left: 1em;
   display: flex;
@@ -26,7 +25,7 @@ const Nav = styled.nav`
     width: 180px;
     top: calc(80px + 2em);
     border-radius: 10px;
-    height: calc(100% - 150px);
+    height: calc(100% - calc(80px + 4em));
     border: 1px solid #d9dcdc;
     overflow-y: auto;
   }
@@ -44,7 +43,7 @@ const Nav = styled.nav`
 
 const TopList = styled.ul`
   margin: 0;
-  padding: 0;
+  padding: 1em;
   list-style: none;
   line-height: 2;
   flex-grow: 1;
@@ -60,9 +59,9 @@ const TopList = styled.ul`
   }
 
   .li:hover {
-    color: #0077cc;
-    background: #f9fafc;
-    border-left: 3px solid #d9dcdc;
+    color: rgba(0, 119, 204, 0.75);
+    background: #f6f8fb;
+    border-left: 3px solid rgba(0, 119, 204, 0.75);
     border-radius: 5px;
   }
 
@@ -79,28 +78,33 @@ const TopList = styled.ul`
   }
 
   .link:hover {
-    color: #0077cc;
+    color: rgba(0, 119, 204, 0.75);
   }
 
   .link:focus {
-    color: #0077cc;
+    color: rgba(0, 119, 204, 0.75);
   }
 `;
 
 const BottomList = styled.ul`
   margin: 0;
-  padding: 0;
-  list-style: none;
+  padding: 1em;
   line-height: 2;
-`;
+  list-style: none;
 
-const StyledLink = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 0.25em;
-  padding-left: 5px;
-  font-size: 1.1rem;
+  .li {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 119, 204, 0.75);
+    justify-content: left;
+    padding-left: 10px;
+    gap: 5px;
+  }
+
+  .link {
+    text-decoration: none;
+    font-size: 1.1em;
+  }
 `;
 
 const Navigation = ({ disp, ...props }) => {
@@ -161,8 +165,10 @@ const Navigation = ({ disp, ...props }) => {
         <BottomList>
           {/*if logged in then display a logout link, else display sign in options */}
           {data.isLoggedIn ? (
-            <div>
+            <li className="li">
+              <PresentToAllOutlinedIcon />
               <ButtonAsLink
+                style={{ fontSize: '1.1em' }}
                 onClick={() => {
                   //remove the token
                   localStorage.removeItem('token');
@@ -176,17 +182,18 @@ const Navigation = ({ disp, ...props }) => {
                   props.history.push('/');
                 }}
               >
-                <StyledLink>
-                  <PresentToAllOutlinedIcon /> <p>Sign Out</p>
-                </StyledLink>
+                {' '}
+                Sign Out
               </ButtonAsLink>
-            </div>
+            </li>
           ) : (
-            <Link style={{ textDecoration: 'none' }} to="signin">
-              <StyledLink>
-                <ExitToAppOutlinedIcon /> <p>Sign In</p>
-              </StyledLink>
-            </Link>
+            <li className="li">
+              <ExitToAppOutlinedIcon />
+              <Link className="link" to="signin">
+                {' '}
+                Sign In
+              </Link>
+            </li>
           )}
         </BottomList>
       </Nav>

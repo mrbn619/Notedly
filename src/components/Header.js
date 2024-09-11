@@ -51,7 +51,7 @@ const Header = props => {
         </Link>
         <LogoText>
           <Link style={{ textDecoration: 'none', color: '#000000' }} to="/">
-            <span style={{ color: '#0077cc' }}>N</span>otes
+            <span style={{ color: 'rgba(0, 119, 204, 0.75)' }}>N</span>otes
           </Link>
         </LogoText>
         <RightCorner

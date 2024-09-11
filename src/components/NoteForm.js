@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Button from './Button';
 
 const Wrapper = styled.div`
-  height: 100%;
-  margin: 1em;
+  height: calc(100% - 80px);
+  margin-top: 1em;
 `;
 
 const Form = styled.form`
@@ -13,7 +13,7 @@ const Form = styled.form`
 
 const TextArea = styled.textarea`
   width: 100%;
-  height: 85%;
+  height: 100%;
   border: 1px solid #d9dcdc;
   border-radius: 10px;
 `;

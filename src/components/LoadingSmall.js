@@ -14,7 +14,7 @@ const Loader = styled.div`
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border-top: 2px solid #6c7378;
+    border-top: 2px solid rgba(0, 119, 204, 0.75);
     animation: spinner 1.5s linear infinite;
 
     @media(max-width: 700px){

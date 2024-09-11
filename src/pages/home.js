@@ -14,7 +14,8 @@ const ArrowWrapper = styled.div`
   border-radius: 50%;
   display: block;
   padding: 12px;
-  margin-left: 1em;
+  z-index: 1;
+  margin-left: 0.5em;
 
   :hover {
     box-shadow: 0 1px 2px 0 rgba(0, 119, 204, 0.3),

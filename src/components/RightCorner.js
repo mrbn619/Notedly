@@ -20,7 +20,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   font-size: 18px;
-  background: #0077cc;
+  background: rgba(0, 119, 204, 0.75);
   color: #fff;
   cursor: pointer;
 
@@ -63,7 +63,7 @@ const RightCorner = ({ logged, toggleNav, isShown }) => {
           <p
             style={{
               fontSize: '1.2 rem',
-              color: '#0077cc'
+              color: 'rgba(0, 119, 204, 0.75)'
             }}
           >
             hello, <em style={{ fontWeight: 'bold' }}>{data.userName}</em>

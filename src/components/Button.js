@@ -8,7 +8,7 @@ const Button = styled.button`
   border-radius: 5px;
   font-size: 18px;
   color: #fff;
-  background-color: #0077cc;
+  background-color: rgba(0, 119, 204, 0.75);
   cursor: pointer;
   :hover {
     opacity: 0.8;

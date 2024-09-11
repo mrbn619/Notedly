@@ -12,7 +12,7 @@ export default createGlobalStyle`
     
     /* width */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
       height: 4px;
     }
 
@@ -35,7 +35,7 @@ export default createGlobalStyle`
     }
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 119, 204, 0.5); 
+      background: rgba(0, 119, 204, 0.6); 
     }
 
     body,
@@ -54,7 +54,7 @@ export default createGlobalStyle`
 
     a:link,
     a:visited {
-        color: #0077cc;
+        color: rgba(0, 119, 204, 0.75);
     }
 
     a:hover,

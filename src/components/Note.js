@@ -79,12 +79,12 @@ const ContentWrapper = styled.div`
   line-height: 1.6;
 
   p {
-    margin: 1em 0;
+    margin-top: 1em;
   }
 
   ul,
   ol {
-    margin: 1em 0;
+    margin-top: 1em;
     padding-left: 1.5em;
   }
 
@@ -99,7 +99,7 @@ const ContentWrapper = styled.div`
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1em 0;
+    margin-top: 1em;
     border-radius: 10px;
     overflow: hidden;
 
@@ -120,7 +120,7 @@ const ContentWrapper = styled.div`
     height: auto;
     border: 1px solid #d9dcdc;
     border-radius: 10px;
-    margin: 1em 0;
+    margin-top: 1em;
   }
 `;
 
@@ -132,6 +132,20 @@ const InlineCode = styled.code`
   border: 1px solid #d9dcdc;
 `;
 
+const CodeBlock = styled.pre`
+  margin-top: 1em;
+  background-color: #f9fafc;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border: 1px solid #d9dcdc;
+  border-radius: 10px;
+  overflow-x: auto;
+`;
+
+const Code = styled.code`
+  display: block;
+`;
+
 const Note = ({ note }) => {
   //IS_LOGGED_IN query
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
@@ -139,7 +153,6 @@ const Note = ({ note }) => {
   if (loading) return <Loading />;
   //if there was an error, display the error message
   if (error) return <p>Error!</p>;
-
   return (
     <StyledNote>
       <MetaData>
@@ -178,7 +191,17 @@ const Note = ({ note }) => {
         <ReactMarkdown
           children={note.content}
           remarkPlugins={[remarkGfm]}
-          components={{ code: InlineCode }}
+          components={{
+            code({ inline, children, ...props }) {
+              return inline ? (
+                <InlineCode {...props}>{children}</InlineCode>
+              ) : (
+                <CodeBlock>
+                  <Code {...props}>{children}</Code>
+                </CodeBlock>
+              );
+            }
+          }}
         />
       </ContentWrapper>
     </StyledNote>
